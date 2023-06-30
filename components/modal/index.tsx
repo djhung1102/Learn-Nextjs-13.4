@@ -6,6 +6,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import useSWR from "swr";
 import { Dialog, Transition } from "@headlessui/react";
 import { Divide } from "lucide-react";
+import Link from "next/link";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -90,6 +91,7 @@ const MovieDetailModal = () => {
                     <div className="mt-3 text-base font-medium text-black line-clamp-3">
                       {data?.overview}
                     </div>
+                    <button className="px-4 py-2 rounded-lg bg-black text-white mt-3">View</button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

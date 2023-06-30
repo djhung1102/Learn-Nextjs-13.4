@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { useParams } from "next/navigation";
 import LoadingDetail from "@/app/movie/[id]/loading";
 import Image from "next/image";
+import BuyTicket from "./BuyTicket";
 
 export async function getDataMovieDetail(id: number) {
   const res = await fetch(
@@ -48,6 +49,7 @@ const MovieDetail = async ({ params: { id } }: Params) => {
           </div>
         </div>
         <div className="mt-3 text-base font-medium text-black line-clamp-3">{data.overview}</div>
+        <BuyTicket />
       </div>
     </Suspense>
   );
