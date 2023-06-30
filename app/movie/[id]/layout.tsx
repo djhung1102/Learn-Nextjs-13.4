@@ -10,7 +10,7 @@ export default function DetailLayout({
   modal,
 }: {
   children: React.ReactNode;
-  modal?: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <div className="w-full">

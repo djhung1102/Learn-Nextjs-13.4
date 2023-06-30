@@ -8,7 +8,7 @@ export async function getDataMovieDetail(id: number) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=7316d598ed080580adad536a5a893903`,
     {
-      cache: "no-store",
+      next: { revalidate: 60 },
     }
   );
   return res.json();
@@ -21,8 +21,6 @@ type Params = {
 
 const MovieDetail = async ({ params: { id } }: Params) => {
   const data = await getDataMovieDetail(id);
-
-  console.log("data ~ ", data);
 
   return (
     <Suspense fallback={<LoadingDetail />}>
