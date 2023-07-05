@@ -7,6 +7,7 @@ const nextConfig = {
     unoptimized: true,
     domains: ["image.tmdb.org"],
   },
+  reactStrictMode: true,
 };
 
 module.exports = nextConfig;

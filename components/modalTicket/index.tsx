@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { Fragment, useState } from "react";
 
 const ModalTicket = () => {
@@ -45,7 +45,7 @@ const ModalTicket = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <div className="w-full px-10 max-w-3xl">
+                  <div className="w-full px-10 max-w-3xl flex flex-col gap-y-3">
                     <h1 className="text-xl font-semibold">Ticket Page</h1>
                     <span>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laborum soluta
@@ -53,6 +53,15 @@ const ModalTicket = () => {
                       possimus, dolorem voluptatum quod amet. Nam, repellendus aut. Maiores, maxime
                       ipsa?
                     </span>
+
+                    <button
+                      className="px-4 py-2 rounded-lg bg-black text-white"
+                      onClick={() => {
+                        window.location.reload();
+                      }}
+                    >
+                      Next
+                    </button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

@@ -1,18 +1,16 @@
-import React, { Suspense } from "react";
+import React, { Suspense, cache } from "react";
 import { useParams } from "next/navigation";
-import LoadingDetail from "@/app/movie/[id]/loading";
 import Image from "next/image";
 import BuyTicket from "./BuyTicket";
+import TopRated from "../top-rated";
+import LoadingMovies from "@/app/movie/[id]/loading";
 
-export async function getDataMovieDetail(id: number) {
+export const getDataMovieDetail = cache(async (id: number) => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=7316d598ed080580adad536a5a893903`,
-    {
-      next: { revalidate: 60 },
-    }
+    `https://api.themoviedb.org/3/movie/${id}?api_key=7316d598ed080580adad536a5a893903`
   );
   return res.json();
-}
+});
 type Params = {
   params: {
     id: number;
@@ -23,7 +21,7 @@ const MovieDetail = async ({ params: { id } }: Params) => {
   const data = await getDataMovieDetail(id);
 
   return (
-    <Suspense fallback={<LoadingDetail />}>
+    <Suspense fallback={<LoadingMovies />}>
       <div className="max-w-3xl px-4">
         <div className="relative">
           <Image
@@ -31,7 +29,7 @@ const MovieDetail = async ({ params: { id } }: Params) => {
             alt=""
             width={200}
             height={200}
-            className="h-[400px] w-full rounded-lg object-cover"
+            className="h-[400px] w-full object-cover rounded-lg"
           />
           <div className="overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.0)] rounded-lg"></div>
           <div className="absolute bottom-5 text-white font-semibold text-xl left-3">

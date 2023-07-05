@@ -1,3 +1,3 @@
-export default function LoadingDetail() {
-  return <div className="font-semibold text-red-700 text-3xl">Movie Detail ....</div>;
+export default function LoadingMovies() {
+  return <div className="font-semibold text-red-700 text-3xl">Hung ...</div>;
 }

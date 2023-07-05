@@ -14,8 +14,8 @@ export default function DetailLayout({
 }) {
   return (
     <div className="w-full">
-      {children}
       {modal}
+      {children}
     </div>
   );
 }

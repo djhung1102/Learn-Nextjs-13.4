@@ -3,7 +3,7 @@ import React from "react";
 
 const Menu = () => {
   return (
-    <div className="flex items-center flex-col border-r border-gray-500 h-screen">
+    <div className="flex items-center flex-col border-r border-gray-500 h-auto lg:h-screen">
       <Link href="/">
         <span>Movies</span>
       </Link>
